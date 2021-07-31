@@ -109,8 +109,6 @@ def calc_vaciacao_ativo(nome,aporte,price_in, price_out):
                 plt.annotate('Um projeto de Alessandro Maciel Schmidt\n2º Período - Engenharia de Software PUCPR',
                              coorde_label_me, bbox={"boxstyle": "square", "color": "royalblue"},
                              color="black")
-                #plt.annotate(f'Investimento inicial: R$ {aporte:.2f}\nValor final: R$ {valor_final:.2f}\nPerformance: R$ {performance:.2f}\nRentabilidade: {rentabil}%', coorde_stats,
-                             #bbox={"boxstyle": "square", "color": "lblue"}, color="black")
                 plt.annotate(f'Estatísticas\nInvestimento inicial: R$ {aporte:.2f}\nPerformance: R${performance:.2f}\nRentabilidade: {rentabil:.2f}%',coorde_stats, bbox={"boxstyle":"circle", "color":colores}, color="white")
                 plt.annotate(f'Valor final: R$ {valor_final:.2f}', (price_out,valor_final), coorde_label_price_final, arrowprops={"arrowstyle":"-|>"}, bbox={"boxstyle":"round4", "color":"navy"},color="white")
                 plt.show()
