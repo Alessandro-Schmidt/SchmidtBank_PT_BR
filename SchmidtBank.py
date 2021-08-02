@@ -1,3 +1,7 @@
+# Este projeto foi desenvolvido por Alessandro Maciel Schmidt, durante as férias de inverno de 2021. 
+# Engenharia de Softwarte - PUCPR - 2º Período - 07/2021
+
+
 def linha(a=70):
     print('-'*a)
 
