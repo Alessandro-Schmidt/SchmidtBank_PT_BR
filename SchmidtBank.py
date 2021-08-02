@@ -10,6 +10,7 @@ def title(*k):
 
 
 def calcul_juros(valor, rentabil, vezes):
+    from time import sleep
     import matplotlib.pyplot as plt
     evolucao = [valor]
     contador = [0]
@@ -19,6 +20,7 @@ def calcul_juros(valor, rentabil, vezes):
         y*=x
         linha(len(f'{c}ª operação: R$ {y:.0f},00'))
         print(f'{c}ª operação: R$ {y:.0f},00')
+        sleep(0.2)
         evolucao.append(y)
         contador.append(c)
     lucro = y - valor
@@ -120,10 +122,14 @@ def calc_vaciacao_ativo(nome,aporte,price_in, price_out):
 
 # Programa principal:
 
+from time import sleep
 while True:
     linha(70)
+    sleep(0.3)
     print('SCHMIDTBANK'.center(70))
+    sleep(0.3)
     print('Um projeto SchmidTech'.center(70))
+    sleep(0.3)
     linha(70)
     try:
         opt = int(input('Qual serviço deseja?\n[1] - Investimento e Juros compostos\n'
@@ -148,7 +154,10 @@ while True:
                                     while True:
                                         try:
                                             choice = int(input('[1] - Voltar ao menu principal\n[2] - Nova aplicação\nOpção: '))
-                                            break
+                                            if choice >2 or choice<1:
+                                                print('\033[31mDigite apenas o número [1] ou [2]\033[m\n')
+                                            else: 
+                                                break
                                         except:
                                             print('\n\033[31mDigite uma opção válida no menu!\033[m\n')
                                     if choice == 1:
@@ -174,7 +183,10 @@ while True:
                             while True:
                                 try:
                                     choice = int(input('[1] - Voltar ao menu principal\n[2] - Nova aplicação\nOpção: '))
-                                    break
+                                    if choice > 2 or choice<1: 
+                                        print('\n\033[31mDigite apenas o número [1] ou [2].\033[m\n')
+                                    else: 
+                                        break
                                 except:
                                     print('\n\033[31mDigite uma opção válida no menu!\033[m\n')
                             if choice ==1:
