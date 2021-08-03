@@ -127,7 +127,9 @@ def calc_vaciacao_ativo(nome,aporte,price_in, price_out):
 # Programa principal:
 
 from time import sleep
-while True:
+
+from matplotlib.pyplot import bar_label
+while True: # while principal do programa como um todo; 
     linha(70)
     sleep(0.3)
     print('SCHMIDTBANK'.center(70))
@@ -144,36 +146,46 @@ while True:
         elif opt>3 or opt<0:
             print('\033[31mDigite apenas [1], [2] ou [3]\033[m')
         elif opt ==2:
-                while True:
+                while True: # while principal da opção 2; 
                     title('Variação de preço de ativo', 'Opção gráfica', 'Rentabilidade')
-                    try:
-                        nome = str(input('Digite o nome do ativo: '))
+                    while True: # While apenas do nome; 
                         try:
-                            aporte = float(input('Qual o aporte inicial: R$ '))
-                            try:
-                                price_dentro = float(input(f'Qual o preço [mˆ2, valor de ação] de {nome}:\nR$ '))
+                            nome = str(input('Digite o nome do ativo: '))
+                            while True: # While apenas do valor do aporte; 
                                 try:
-                                    price_fora = float(input(f'Qual o preço de venda provisionado de {nome}? R$ '))
-                                    calc_vaciacao_ativo(nome, aporte, price_dentro, price_fora)
-                                    while True:
+                                    aporte = float(input('Qual o aporte inicial: R$ '))
+                                    while True: # while apenas da variável price_dentro; 
                                         try:
-                                            choice = int(input('[1] - Voltar ao menu principal\n[2] - Nova aplicação\nOpção: '))
-                                            if choice >2 or choice<1:
-                                                print('\033[31mDigite apenas o número [1] ou [2]\033[m\n')
-                                            else: 
-                                                break
+                                            price_dentro = float(input(f'Qual o preço [mˆ2, valor de ação] de {nome}:\nR$ '))
+                                            while True: # while apenas da variável price out
+                                                try:
+                                                    price_fora = float(input(f'Qual o preço de venda provisionado de {nome}? R$ '))
+                                                    calc_vaciacao_ativo(nome, aporte, price_dentro, price_fora)
+                                                    break
+                                                except:
+                                                    print('\n\033[31mDigite um preço de venda válido!!\033[m\n')
+                                            break
                                         except:
-                                            print('\n\033[31mDigite uma opção válida no menu!\033[m\n')
-                                    if choice == 1:
-                                        break
+                                            print('\n\033[31mDigite um preço de entrada válido!\033[m\n')
+                                    break
                                 except:
-                                    print('\n\033[31mDigite um preço de venda válido!!\033[m\n')
-                            except:
-                                print('\n\033[31mDigite um preço de entrada válido!\033[m\n')
+                                    print('\n\033[31mDigite um aporte válido!\033[m\n')
+                            break
                         except:
-                            print('\n\033[31mDigite um aporte válido!\033[m\n')
-                    except:
-                        print('\n\033[31mDigite algo válido!\033[m\n')
+                            print('\n\033[31mDigite algo válido!\033[m\n')
+                    while True: # while de escolha do usuário
+                        try:
+                            choice = int(input('[1] - Voltar ao menu principal\n[2] - Nova aplicação\nOpção: '))
+                            if choice >2 or choice<1:
+                                print('\033[31mDigite apenas o número [1] ou [2]\033[m\n')
+                            else: 
+                                break
+                        except:
+                            print('\n\033[31mDigite uma opção válida no menu!\033[m\n')
+                    if choice ==1:
+                            break
+                    elif choice ==2: 
+                        continue
         elif opt ==1:
             while True:
                 title('Investimentos com Juros compostos', 'Opção gráfica',)
