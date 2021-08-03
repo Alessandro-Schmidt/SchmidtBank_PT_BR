@@ -189,30 +189,36 @@ while True: # while principal do programa como um todo;
         elif opt ==1:
             while True:
                 title('Investimentos com Juros compostos', 'Opção gráfica',)
-                try:
-                    valor = float(input('Digite o valor da aplicação: R$ '))
+                while True: 
                     try:
-                        rent = float(input('Digite a rentabilidade em %: '))
-                        try:
-                            vezes = int(input(f'Quantas operações com rentabilidade de {rent}%: '))
-                            calcul_juros(valor,rent,vezes)
-                            while True:
-                                try:
-                                    choice = int(input('[1] - Voltar ao menu principal\n[2] - Nova aplicação\nOpção: '))
-                                    if choice > 2 or choice<1: 
-                                        print('\n\033[31mDigite apenas o número [1] ou [2].\033[m\n')
-                                    else: 
-                                        break
-                                except:
-                                    print('\n\033[31mDigite uma opção válida no menu!\033[m\n')
-                            if choice ==1:
-                                break
-                        except:
-                            print('\n\033[31mDigite um número de vezes válido [número inteiro]!\033[m\n')
+                        valor = float(input('Digite o valor da aplicação: R$ '))
+                        while True: 
+                            try:
+                                rent = float(input('Digite a rentabilidade em %: '))
+                                while True:
+                                    try:
+                                        vezes = int(input(f'Quantas operações com rentabilidade de {rent}%: '))
+                                        calcul_juros(valor,rent,vezes)
+                                        break 
+                                    except:
+                                        print('\n\033[31mDigite um número de vezes válido [número inteiro]!\033[m\n')
+                                break    
+                            except:
+                                print('\n\033[31mDigite uma rentabilidade válida!\033[m\n ')
+                        break
                     except:
-                        print('\n\033[31mDigite uma rentabilidade válida!\033[m\n ')
-                except:
-                    print('\n\033[31mDigite um valor de aplicação válido!\033[m\n')
+                        print('\n\033[31mDigite um valor de aplicação válido!\033[m\n')
+                while True:
+                    try:
+                        choice = int(input('[1] - Voltar ao menu principal\n[2] - Nova aplicação\nOpção: '))
+                        if choice > 2 or choice<1: 
+                            print('\n\033[31mDigite apenas o número [1] ou [2].\033[m\n')
+                        else: 
+                            break
+                    except:
+                        print('\n\033[31mDigite uma opção válida no menu!\033[m\n')
+                if choice ==1:
+                    break
     except:
         print('\n\033[31mDigite um valor válido no menu!\033[m\n')
 title('Este projeto foi desenvolvido por Alessandro Maciel Schmidt', 'Engenharia de Software - PUCPR',
