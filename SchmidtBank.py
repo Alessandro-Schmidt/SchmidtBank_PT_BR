@@ -222,4 +222,4 @@ while True: # while principal do programa como um todo;
     except:
         print('\n\033[31mDigite um valor válido no menu!\033[m\n')
 title('Este projeto foi desenvolvido por Alessandro Maciel Schmidt', 'Engenharia de Software - PUCPR',
-      '2º Período')
+      '2º Período', 'Mais está por vir!', 'Aguarde atualizações')
